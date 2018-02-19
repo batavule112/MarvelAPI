@@ -1,0 +1,125 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Marvel', sans-serif;
+}
+
+.nema {
+	display: none;
+}
+
+
+body {
+	height: 100%;
+	width: 100%;
+	background-image: url("slika1.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.kartica {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+.kartica a {
+	margin: auto;
+	margin-top: 0;
+}
+
+.kartica h5 {
+	margin: auto;
+}
+
+.pagination {
+	margin-top: 10px;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+.lead {
+	margin-top: 10px;
+	color: white;
+}
+
+.logo {
+	margin: 0 auto;
+	height: 150px;
+	width: 100%;
+	margin-bottom: 10px;
+	background-image: url("logo.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.jumbotron {
+	padding: 5px;
+	background-color: black;
+	position: fixed;
+	left: 0;
+	height: 100vh;
+	border-radius: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 0;
+}
+
+b {
+	color: white;
+}
+
+
+
+.all1 {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.card {
+	padding-top: 10px;
+	transition: 1s;
+}
+
+.card:hover {
+	background-color: black;
+	transform: rotate(-1deg);
+}
+
+.card:hover h5 {
+	color: white;
+}
+
+@media screen and (max-width: 768px) {
+	div.jumbotron {
+		position: relative;
+		height: auto;
+		top: 0vh;
+	}
+	#text {
+		width: 80%;
+	}
+	.card {
+		width: 70%;
+		margin: 0 auto;
+	}
+	body {
+		background-image: none;
+		background-color: #b7b5cc;
+	}
+
+}
+
+@media screen and (max-width: 1000px) {
+	img {
+		width: 95%;
+		height: 95%;
+		padding-left: 5px;
+	}
+	
+}
+
