@@ -64,6 +64,9 @@ var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156
 						document.getElementsByClassName('page-item')[0].classList.add("active");
 						document.getElementById('strane').insertAdjacentHTML( 'afterend', string);
 						document.getElementById('strana1').style.display = 'block';
+						if ( brojstrana < 1  ) {
+							document.getElementsByClassName('page-item')[0].style.display = 'none';
+										}
 									}
 								}
 							pretraga.send();
@@ -85,4 +88,8 @@ var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156
 		}
 	}
 	pretraga.send();
+}
+
+function pali() {
+   document.getElementsByClassName('jumbotron').fadein
 }
