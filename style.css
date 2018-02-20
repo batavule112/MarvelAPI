@@ -74,7 +74,39 @@ b {
 	color: white;
 }
 
+.right {
+	position: relative;
+}
 
+.obavestenje {
+	height: 45vh;
+	width: 50%;
+	background-color: white;
+	position: relative;
+	top: 20vh;
+	margin: 0 auto;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.zatvori {
+	position: absolute;
+	right: 10px;
+	top: 7px;
+	cursor: pointer;
+}
+
+.obavestenje h2,
+.obavestenje p {
+	margin: auto;
+	text-align: center;
+}
+
+.obavestenje p {
+	font-size: 120%;
+}
 
 .all1 {
 	display: flex;
@@ -112,7 +144,11 @@ b {
 		background-image: none;
 		background-color: #b7b5cc;
 	}
-
+	.obavestenje {
+		width: 90%;
+		top: 1vh;
+		height: 60vh;
+	}
 }
 
 @media screen and (max-width: 1000px) {

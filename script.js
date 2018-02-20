@@ -17,7 +17,7 @@ $('#text').keyup(function(){
 // pretraga (glavno)
 function trazi() {
 	zakasnjenje = null;
-var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204];
+	var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204]; // mrzelo me da includujem underscore range
 	$("#bla").children('li').remove();
 	$("#strane").nextAll('div').remove();
 	var pretraga = new XMLHttpRequest();
@@ -100,5 +100,10 @@ var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156
 }
 // jumbotron slidein
 function pali() {
-   document.getElementsByClassName('jumbotron')
+	$('.jumbotron, .obavestenje').hide();
+	$(".jumbotron, .obavestenje").fadeIn(3000);
 }
+
+$('#text, .zatvori').click(function(){
+	$('.obavestenje').hide();
+});
