@@ -1,3 +1,4 @@
+// povezivanje nav bara i selektora strana
 function prikaziStranu(id) {
 	var maxStrana = 20;
 	for ( i = 1; i < maxStrana; i++ ) {
@@ -7,9 +8,15 @@ function prikaziStranu(id) {
 		if (document.getElementById("strana"+id)) 
 			document.getElementById("strana"+id).style.display='block';	
 }
-
-document.getElementById('text').addEventListener('keyup', trazi);
+// plugin da kasni search
+var zakasnjenje = null;  
+$('#text').keyup(function(){
+  if(zakasnjenje != null) clearTimeout(zakasnjenje);  
+  zakasnjenje =setTimeout(trazi,500);  
+});
+// pretraga (glavno)
 function trazi() {
+	zakasnjenje = null;
 var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204];
 	$("#bla").children('li').remove();
 	$("#strane").nextAll('div').remove();
@@ -60,6 +67,7 @@ var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156
 							}
 						}
 						string += "<div>";
+						// dodavanje nav i strana
 						document.getElementById('bla').insertAdjacentHTML( 'beforeend', "<li class='page-item'><a class='page-link' href='javascript: onClick=prikaziStranu(\""+ [g+1] +"\");'>"+ [g+1] +"</a></li>");
 						document.getElementsByClassName('page-item')[0].classList.add("active");
 						document.getElementById('strane').insertAdjacentHTML( 'afterend', string);
@@ -73,6 +81,7 @@ var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156
 							}
 						}
 					}
+					// selektovanje activne strane
 					var oznaci = document.getElementsByClassName("page-item");
 					for(var i = 0; i < oznaci.length; i++) {
         				oznaci[i].onclick = function(){
@@ -89,7 +98,7 @@ var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156
 	}
 	pretraga.send();
 }
-
+// jumbotron slidein
 function pali() {
-   document.getElementsByClassName('jumbotron').fadein
+   document.getElementsByClassName('jumbotron')
 }
