@@ -8,6 +8,10 @@ function prikaziStranu(id) {
 	if ($("#strana"+id))
 		$("#strana"+id).css('display', 'block');
 }
+var url = "http://gateway.marvel.com/v1/public/characters?&ts=1&apikey=3912be687c89f571e89351c2ffb553d2&hash=3a08d56d5470a38378ad1df45e07b065&limit=12&nameStartsWith=";
+
+
+
 // plugin da kasni search
 var zakasnjenje = null;  
 $('#text').keyup(function(){
@@ -20,17 +24,15 @@ function trazi() {
 	var offsetVrednost = [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204]; // mrzelo me da includujem underscore range
 	$("#bla").children('li').remove();
 	$("#strane").nextAll('div').remove();
-	var pretraga = new XMLHttpRequest();
 	var pretrazivac = document.getElementById("text").value;
-	var url = "http://gateway.marvel.com/v1/public/characters?&ts=1&apikey=3912be687c89f571e89351c2ffb553d2&hash=3a08d56d5470a38378ad1df45e07b065";
 	function info (){
-	return $.get(url+"&nameStartsWith="+pretrazivac+"&limit=12"+"&offset="+offsetVrednost[0]);}
+	return $.get(url+pretrazivac);}
 	info().done(function(data){
 			document.getElementById("footer").innerHTML = data.attributionHTML;
 			document.getElementById("info").innerHTML = "Pronadjeni su " + data.data.total + " rezultata. ";
 			 var brojstrana = data.data.total / 12;
 			 if ( brojstrana > 0 ) {
-				for ( g = 0; g < brojstrana; g++ ) {
+				for ( g = 0; g < brojstrana && brojstrana <= 20; g++ ) {
 					// dodavanje nav i strana
 					$('#bla').append("<li class='page-item'><a class='page-link' href='javascript: onClick=prikaziStranu(\""+ [g+1] +"\");'>"+ [g+1] +"</a></li>");
 						$('.page-item:first-child').addClass('active');
@@ -40,7 +42,7 @@ function trazi() {
 						try{throw g}
 						catch(g) {
 						$.ajax({
-							url: url + "&nameStartsWith=" + pretrazivac + "&limit=12" + "&offset=" + offsetVrednost[g],
+							url: url + pretrazivac  + "&offset=" + offsetVrednost[g],
 							type: "GET",
 							success: function(rezultati1) {
 							var strana = "strana" + [g+1];
@@ -51,7 +53,7 @@ function trazi() {
 								var element = rezultati1.data.results[i];
 							string += "<div class='col-md-3 col-sm-6 kartica'>";
 							string += "<div class='card'>";
-							string += "<a href='"+element.urls[1].url+"'target='_blank'>";
+							string += "<a href='"+element.urls[0].url+"'target='_blank'>";
 							string += "<img src='"+element.thumbnail.path +"/portrait_fantastic."+element.thumbnail.extension+"'/>";
 							string += "</a>";
 							string += "<h5>" + element.name + "</h5>";
@@ -88,3 +90,4 @@ function pali() {
 $('#text, .zatvori').click(function(){
 	$('.obavestenje').hide();
 });
+$("#strana").children('ul').remove();
