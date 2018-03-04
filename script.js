@@ -16,7 +16,7 @@ var url = "http://gateway.marvel.com/v1/public/characters?&ts=1&apikey=3912be687
 var zakasnjenje = null;  
 $('#text').keyup(function(){
   if(zakasnjenje != null) clearTimeout(zakasnjenje);  
-  zakasnjenje =setTimeout(trazi,500);  
+  zakasnjenje =setTimeout(trazi,1000);  
 });
 // pretraga (glavno)
 function trazi() {
