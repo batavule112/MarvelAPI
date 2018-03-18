@@ -123,8 +123,12 @@ h1 {
 	background-color: transparent;
 }
 
+.card h5 {
+	color: #fff;
+}
+
 .card:hover h5 {
-	color: white;
+	color: red;
 }
 @media screen and (max-width: 768px) {
 	div.jumbotron {
