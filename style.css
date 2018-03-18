@@ -116,11 +116,11 @@ h1 {
 .card {
 	padding-top: 10px;
 	transition: 1s;
+	background-color: black;
 }
 
 .card:hover {
-	background-color: black;
-	transform: rotate(-1deg);
+	background-color: transparent;
 }
 
 .card:hover h5 {
