@@ -8,7 +8,7 @@ function prikaziStranu(id) {
 	if ($("#strana"+id))
 		$("#strana"+id).css('display', 'block');
 }
-var url = "http://gateway.marvel.com/v1/public/characters?&ts=1&apikey=3912be687c89f571e89351c2ffb553d2&hash=3a08d56d5470a38378ad1df45e07b065&limit=12&nameStartsWith=";
+var url = "https://gateway.marvel.com/v1/public/characters?&ts=1&apikey=3912be687c89f571e89351c2ffb553d2&hash=3a08d56d5470a38378ad1df45e07b065&limit=12&nameStartsWith=";
 
 
 
