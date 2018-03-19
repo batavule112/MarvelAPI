@@ -9,14 +9,11 @@ function prikaziStranu(id) {
 		$("#strana"+id).css('display', 'block');
 }
 var url = "https://gateway.marvel.com/v1/public/characters?&ts=1&apikey=3912be687c89f571e89351c2ffb553d2&hash=3a08d56d5470a38378ad1df45e07b065&limit=12&nameStartsWith=";
-
-
-
 // plugin da kasni search
-var zakasnjenje = null;  
+var zakasnjenje = null;
 $('#text').keyup(function(){
   if(zakasnjenje != null) clearTimeout(zakasnjenje);  
-  zakasnjenje =setTimeout(trazi,1000);  
+  zakasnjenje = setTimeout(trazi, 1000);  
 });
 // pretraga (glavno)
 function trazi() {
@@ -50,7 +47,7 @@ function trazi() {
 							string += "<div class='nema' id='" + strana + "'>";
 							string += "<div class='row'>";
 							for(var i = 0; i<rezultati1.data.results.length; i++) {
-								var element = rezultati1.data.results[i];
+							var element = rezultati1.data.results[i];
 							string += "<div class='col-md-3 col-sm-6 kartica'>";
 							string += "<div class='card'>";
 							string += "<a href='"+element.urls[0].url+"'target='_blank'>";
@@ -72,7 +69,7 @@ function trazi() {
     							}
 							}
 						}			
-$(".page-item").click(function() {
+	$(".page-item").click(function() {
 	if ($('.page-item').hasClass("active")) {
 		$('.page-item').removeClass("active");
 		$(this).addClass("active");
