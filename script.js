@@ -37,7 +37,6 @@ function traziPagi() {
 $('body').on('click', '#bla li a', function(){
 	var pagiBroj = $(this).text();
     offset = (pagiBroj - 1) * limit;
-    console.log(offset);
     trazi();
 });
 function trazi() {
@@ -51,7 +50,6 @@ function trazi() {
 		// info u jumb
 		$('#footer').html(rezultati.attributionHTML);
 		$('#info').html("Pronadjeni su " + rezultati.data.total + " rezultata. ");
-		console.log(rezultati);
 		// sadrzaj u rezultatima
 		var string = "";
 		string += "<div class='row'>";
