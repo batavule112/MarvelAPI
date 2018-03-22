@@ -3,7 +3,7 @@
 	font-family: 'Marvel', sans-serif;
 }
 
-.nema {
+#rezultati .row:last-child {
 	display: none;
 }
 
